@@ -1,0 +1,12 @@
+#sass
+.sass-cache/
+
+#mac
+.DS_Store
+
+#win
+Thumbs.db
+
+.htpasswd
+
+.bundle

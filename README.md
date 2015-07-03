@@ -37,6 +37,7 @@ keys properly: ``YOUR_CLIENT_ID``, ``YOUR_CLIENT_SECRET``, ``AZURE_ACCOUNT_KEY``
 ## Usage
     $ ruby main.rb
 このアプリケーションがどのような挙動をするのかは[こちら](http://blog.ikeay.net/559)のブログで説明しています。
+
 [This blog post (written in Japanese)](http://blog.ikeay.net/559) explains how it works.
 
 ## Author

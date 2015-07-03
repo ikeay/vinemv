@@ -29,12 +29,14 @@ on the other environment, but I do not support the other setting.
     $ edit keys in class/extract.rb (see below).
     $ bundle install
 
+class/extract.rbに書かれている鍵情報``YOUR_CLIENT_ID``, ``YOUR_CLIENT_SECRET``, ``AZURE_ACCOUNT_KEY``を書き換える必要があります。
+
 Note that in class/extract.rb, you need to change the values of the
 keys properly: ``YOUR_CLIENT_ID``, ``YOUR_CLIENT_SECRET``, ``AZURE_ACCOUNT_KEY``.
 
 ## Usage
     $ ruby main.rb
-
+このアプリケーションがどのような挙動をするのかは[こちら](http://blog.ikeay.net/559)のブログで説明しています。
 [This blog post (written in Japanese)](http://blog.ikeay.net/559) explains how it works.
 
 ## Author

@@ -44,7 +44,7 @@ post '/result' do
   id = params["id"]
 
   music = Itunes.new()
-  @music_url = music.search_music_for_id(id)
+  @music_url = music.search_music_by_id(id)
 
   t = t.gsub(" ", "")
 

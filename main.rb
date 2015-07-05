@@ -29,7 +29,7 @@ end
 # 検索ワードの決定
 get '/fixed' do
   tag_pick = Extract.new()
-  t = tag_pick.pickrup_words(params["track"])
+  t = tag_pick.pickup_words(params["track"])
   @tags = t.compact
   content_type :json
   data = { artist: params["artist"],  track: params["track"], id: params["id"], tags: @tags}

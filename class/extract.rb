@@ -64,7 +64,7 @@ class Extract
     words = words + jwords # タグに日本語も追加
   end
 
-  def pickrup_words(text)
+  def pickup_words(text)
     if has_mb?(text) # 日本語
       pickup_ja(text)
     else # 英語

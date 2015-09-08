@@ -94,7 +94,7 @@ function chooseMusic(){
                 $("#output").empty();
                 $("#load").css("display", "none");
                 $("#info").val(json.track + ' / ' + json.artist);
-                $("#form").append('<form id="gmv" action="result" method="post"> <div id="search-items"> <div id="bpm-wrap"> <div class="form-label">BPM</div> <input id="bpm" class="form-content" name="bpm" type="number"> </div> <div id="tags-wrap"> <div class="form-label">TAGS</div> <input id="tags" class="form-content" name="tags" type="text" value="' + arrayToText(json.tags) + '"> </div> <input id="track-id" name="id" value="' + json.id + '"> </div> <input id="generate" class="btn" type="submit" value="MVを生成する"> </form>');
+                $("#form").append('<form id="gmv" action="result" method="post"> <div id="search-items"> <div id="bpm-wrap"> <div class="form-label">BPM</div> <input id="bpm" class="form-content" name="bpm" type="number" min="1" max="1000"> </div> <div id="tags-wrap"> <div class="form-label">TAGS</div> <input id="tags" class="form-content" name="tags" type="text" value="' + arrayToText(json.tags) + '"> </div> <input id="track-id" name="id" value="' + json.id + '"> </div> <input id="generate" class="btn" type="submit" value="MVを生成する"> </form>');
                 $('#loading').css("display", "none");
             },
             error: function () {

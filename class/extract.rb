@@ -73,9 +73,3 @@ class Extract
   end
 
 end
-
-
-
-
-
-

@@ -38,7 +38,6 @@ end
 
 # 映像の出力
 post '/result' do
-  v = []
   @bpm = params["bpm"]
   t = params["tags"]
   id = params["id"]
@@ -55,10 +54,8 @@ post '/result' do
     tags << t
   end
 
-  for i in 0 .. tags.length - 1 do
-    video = Vine.new()
-    v.push(video.search_tag(tags[i]))
-  end
+  video = Vine.new()
+  v = tags.map { |tag| video.search_tag(tag) }
 
   v.flatten!
   v = v.compact

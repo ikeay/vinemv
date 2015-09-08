@@ -10,17 +10,24 @@ class Itunes
     @clientLookup = Faraday.new(:url => "https://itunes.apple.com/")
   end
 
+  def search_by_tag(tag, limit)
+    response = @client.get do |req|
+      req.url '/search', :term => tag
+      req.params['limit'] = limit
+      req.params['country'] = "jp"
+    end
+    JSON.parse response.body
+  end
+
   # タグからアーティストを検索
   def search_artist(tag)
-    posts = @client.get "/search?term=#{tag}&limit=50&country=jp"
-    body = JSON.parse posts.body
-    url = body['results'][0]['previewUrl']
+    body = search_by_tag(tag, 50)
+    body['results'][0]['previewUrl']
   end
 
   # タグから音楽を検索
   def search_musics(tag)
-    posts = @client.get "/search?term=#{tag}&limit=30&country=jp"
-    body = JSON.parse posts.body
+    body = search_by_tag(tag, 30)
     artist_name = []
     track_name = []
     track_id = []
@@ -29,13 +36,16 @@ class Itunes
         track_name <<  result['trackName']
         track_id << result['trackId']
     end
-    results = {artist: artist_name, track: track_name, id: track_id}
+    {artist: artist_name, track: track_name, id: track_id}
   end
 
  # 曲をトラックIDから検索
-  def search_music_for_id(id)
-    posts = @clientLookup.get "/lookup?id=#{id}&country=jp"
-    body = JSON.parse posts.body
-    url = body['results'][0]['previewUrl']
+  def search_music_by_id(id)
+    response = @clientLookup.get do |req|
+      req.url '/lookup', :id => id
+      req.params['country'] = "jp"
+    end
+    body = JSON.parse response.body
+    body['results'][0]['previewUrl']
   end
 end

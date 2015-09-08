@@ -1,3 +1,19 @@
+function clearTags() {
+    $("#gmv").remove();
+}
+
+function clearSearchResults() {
+    $('#info').keyup(function() {
+        if (!$('#info').val().length) {
+            $("#output").empty();
+            if ($('#gmv')) {
+                clearTags();
+                $('#load').css("display", "");
+            }
+        }
+    });
+}
+
 // 自動フォーカス
 function focusToForm(){
     $('#info').focus();
@@ -34,6 +50,9 @@ function searchMusic(){
     var info = $('#info').val();
     if(info){
         $('#loading').css("display", "block");
+        if ($('#gmv')) {
+            clearTags();
+        }
         var req = $.ajax({
             type: 'GET',
             url: '/music',
@@ -73,7 +92,7 @@ function chooseMusic(){
             },
             success: function (json) {
                 $("#output").empty();
-                $("#load").remove();
+                $("#load").css("display", "none");
                 $("#info").val(json.track + ' / ' + json.artist);
                 $("#form").append('<form id="gmv" action="result" method="post"> <div id="search-items"> <div id="bpm-wrap"> <div class="form-label">BPM</div> <input id="bpm" class="form-content" name="bpm" type="number"> </div> <div id="tags-wrap"> <div class="form-label">TAGS</div> <input id="tags" class="form-content" name="tags" type="text" value="' + arrayToText(json.tags) + '"> </div> <input id="track-id" name="id" value="' + json.id + '"> </div> <input id="generate" class="btn" type="submit" value="MVを生成する"> </form>');
                 $('#loading').css("display", "none");
@@ -94,6 +113,7 @@ function pushGButton(){
 }
 
 $(function(){
+    clearSearchResults();
     focusToForm();
     keyPerssInForm();
     clickBotton();

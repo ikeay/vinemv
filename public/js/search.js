@@ -30,7 +30,7 @@ function keyPressInForm(){
 }
 
 // ボタンを押して検索
-function clickBotton(){
+function clickButton(){
     $('#load').click(function(){
         searchMusic();
     });
@@ -116,7 +116,7 @@ $(function(){
     clearSearchResults();
     focusToForm();
     keyPressInForm();
-    clickBotton();
+    clickButton();
     chooseMusic();
     pushGButton();
 });

@@ -20,7 +20,7 @@ function focusToForm(){
 }
 
 // エンターキーを押しても検索できるように
-function keyPerssInForm(){
+function keyPressInForm(){
     $("#info").keypress( function(e){
         if (e.which == 13) {
             searchMusic();
@@ -115,7 +115,7 @@ function pushGButton(){
 $(function(){
     clearSearchResults();
     focusToForm();
-    keyPerssInForm();
+    keyPressInForm();
     clickBotton();
     chooseMusic();
     pushGButton();

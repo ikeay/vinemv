@@ -23,7 +23,6 @@ on the other environment, but I do not support the other setting.
 + Sinatra 1.4.6
 
 ## Installation
-
     $ git clone https://github.com/ikeay/vinemv.git
     $ cd vinemv
     $ edit keys in class/extract.rb (see below).
@@ -41,5 +40,7 @@ keys properly: ``YOUR_CLIENT_ID``, ``YOUR_CLIENT_SECRET``, ``AZURE_ACCOUNT_KEY``
 [This blog post (written in Japanese)](http://blog.ikeay.net/559) explains how it works.
 
 ## Author
-
 [ikeay](https://github.com/ikeay)
+
+## Copyright
+Copyright © 2015 Ayaka Ikezawa. This software is released under the MIT License, see LICENSE.txt.

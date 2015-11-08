@@ -7,6 +7,11 @@ if settings.development?
   require 'sinatra/reloader'
 end
 
+# ERBテンプレートで変数を自動エスケープ
+# cf. http://www.sinatrarb.com/faq.html#auto_escape_html
+require 'erubis'
+set :erb, :escape_html => true
+
 # クラス
 require './class/vine.rb'
 require './class/itunes.rb'

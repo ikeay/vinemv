@@ -23,6 +23,9 @@ gem "engtagger"
 gem "faraday"
 gem "faraday_middleware"
 
+# 自動HTMLエスケープ
+gem "erubis"
+
 # JSON
 gem "json"
 

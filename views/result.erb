@@ -20,9 +20,11 @@
         <div id="bpm"><%= @bpm %></div>
         <audio id="audio" src="<%= @music_url %>"></audio>
         <% @videos.each do |video| %>
-        <video class="video" src="<%= video %>"></video>
+          <video class="video" src="<%= video %>"></video>
         <% end %>
-        <%=  "<div id='noresult'>映像がありませんでした。</div>" if @videos.empty? %>
+        <% if @videos.empty? %>
+          <div id='noresult'>映像がありませんでした。</div>
+        <% end %>
 
     </div>
 </body>

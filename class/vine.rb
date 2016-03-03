@@ -12,11 +12,6 @@ class Vine
     tag = URI.escape(t)
     posts = @client.get "timelines/tags/#{tag}"
     body = JSON.parse posts.body
-    urls = []
-    body['data']['records'].each_with_index do |record, i|
-      break if i + 1 == 30
-      urls << record['videoLowURL']
-    end
-    urls
+    body['data']['records'].first(30).map{|x| x['videoLowURL']}
   end
 end

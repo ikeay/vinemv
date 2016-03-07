@@ -2,10 +2,9 @@ require 'bing_translator'
 require 'natto'
 require 'engtagger'
 
-# 鍵関連
-YOUR_CLIENT_ID = "YOUR_CLIENT_ID"
-YOUR_CLIENT_SECRET = "YOUR_CLIENT_SECRET"
-AZURE_ACCOUNT_KEY = "AZURE_ACCOUNT_KEY"
+YOUR_CLIENT_ID = ENV["YOUR_CLIENT_ID"]
+YOUR_CLIENT_SECRET = ENV["YOUR_CLIENT_SECRET"]
+AZURE_ACCOUNT_KEY = ENV["AZURE_ACCOUNT_KEY"]
 
 class Extract
   def initialize
